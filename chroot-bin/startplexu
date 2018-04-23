@@ -1,0 +1,15 @@
+#!/bin/sh -e
+# Copyright (c) 2016 The crouton Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+# Launches Plex Media Server;
+
+cd Library/Application\ Support/Plex\ Media\ Server/Plug-ins/
+if [ ! -d WebTools.bundle ]; then
+wget https://github.com/ukdtom/WebTools.bundle/releases/download/3.0.0/WebTools.bundle.zip
+unzip WebTools.bundle.zip
+rm -f WebTools.bundle.zip
+fi
+cd -
+exec startplex
